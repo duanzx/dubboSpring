@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: dubbo-spring-order
+server:
+  port: 8084
+dubbo:
+  scan:
+    base-packages: cn.duanzx.order.service
+  application:
+    name: dubbo-spring-order
+    id: dubbo-spring-order
+  protocol:
+    id: dubbo
+    name: dubbo
+    port: 20880
+  registry:
+    address: zookeeper://192.168.168.140:2181
