@@ -4,8 +4,6 @@ spring:
 server:
   port: 8084
 dubbo:
-  #  scan:
-  #    base-packages: cn.duanzx.order.service
   application:
     name: dubbo-spring-order
     id: dubbo-spring-order
