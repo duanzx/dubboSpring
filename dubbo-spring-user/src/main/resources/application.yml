@@ -27,3 +27,5 @@ dubbo:
     port: 20880
   registry:
     address: zookeeper://192.168.168.140:2181
+#  consumer:
+#    check: false
