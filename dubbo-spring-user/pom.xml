@@ -11,5 +11,12 @@
 
     <artifactId>dubbo-spring-user</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>cn.duanzx</groupId>
+            <artifactId>dubbo-spring-module</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 </project>
