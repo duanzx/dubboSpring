@@ -6,6 +6,6 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @EnableDubboConfig
-@DubboComponentScan(basePackages = "cn.duanzx.order.service")
+@DubboComponentScan(basePackages = "cn.duanzx.user.controller")
 public class DubboConfiguration {
 }
