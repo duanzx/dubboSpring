@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class IndexController {
 
-    @Reference(version = "1.0.0")
+    @Reference(version = "1.0.1")
     private IOrderService orderService;
 
     @GetMapping("/")
