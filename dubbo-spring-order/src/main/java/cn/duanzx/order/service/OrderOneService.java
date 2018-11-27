@@ -3,13 +3,12 @@ package cn.duanzx.order.service;
 import cn.duanzx.module.bean.Order;
 import cn.duanzx.module.service.IOrderService;
 import cn.duanzx.order.repo.OrderRepo;
-import com.alibaba.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Service(interfaceClass = IOrderService.class, version = "1.0.0")
+//@Service(interfaceClass = IOrderService.class, version = "1.0.0")
 @Component
 public class OrderOneService implements IOrderService {
     @Autowired
