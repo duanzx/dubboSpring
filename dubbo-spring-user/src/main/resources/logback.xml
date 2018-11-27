@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+    <contextName>logback</contextName>
+    <property name="log.path" value="D:\\ApplicationData\\neea-epay-bank-data-handler"/>
+    <property name="log.pattern"
+              value="%d{yyyy.MM.dd HH:mm:ss.SSS}{GMT+8} %-5level [%thread] %class{48} %L %M - %msg%xEx%n"/>
+
+    <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{50} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="RootLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log.path}/root.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${log.path}/%d{yyyy-MM-dd}/root.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
+            <maxHistory>180</maxHistory>
+            <totalSizeCap>10GB</totalSizeCap>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{50} - %msg%n
+            </pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <appender name="ServiceLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log.path}/service.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${log.path}/%d{yyyy-MM-dd}/service.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
+            <maxHistory>180</maxHistory>
+            <totalSizeCap>10GB</totalSizeCap>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{50} - %msg%n
+            </pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <appender name="ErrorLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log.path}/error.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${log.path}/%d{yyyy-MM-dd}/error.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
+            <maxHistory>180</maxHistory>
+            <totalSizeCap>10GB</totalSizeCap>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${log.pattern}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="Console"/>
+        <appender-ref ref="RootLog"/>
+    </root>
+
+    <logger name="ServiceLog" level="INFO" additivity="false">
+        <appender-ref ref="Console"/>
+        <appender-ref ref="ServiceLog"/>
+    </logger>
+
+    <logger name="ErrorLog" level="INFO" additivity="false">
+        <appender-ref ref="Console"/>
+        <appender-ref ref="ErrorLog"/>
+    </logger>
+
+</configuration>
