@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<!--
+  ~ Copyright (c) 2017. 教育部考试中心版权所有 保留所有权利
+  -->
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+</head>
+<body>
+<th:block th:fragment="css" th:remove="all">
+    <link href="/static/jquery/ui/jquery-ui.css" th:href="@{~/jquery/ui/jquery-ui.css}"
+          rel="stylesheet"/>
+    <link href="/static/bootstrap/css/bootstrap.css" th:href="@{~/bootstrap/css/bootstrap.css}"
+          rel="stylesheet"/>
+</th:block>
+<th:block th:fragment="js" th:remove="all">
+    <!-- jQuery -->
+    <script type="text/javascript" src="/static/jquery/jquery-1.12.4.min.js"
+            th:src="@{~/jquery/jquery-1.12.4.min.js}"></script>
+    <script type="text/javascript" src="/static/jquery/ui/jquery-ui.js"
+            th:src="@{~/jquery/ui/jquery-ui.js}"></script>
+    <script type="text/javascript" src="/static/jquery/jquery-migrate-1.4.1.js"
+            th:src="@{~/jquery/jquery-migrate-1.4.1.js}"></script>
+    <!--moment-->
+    <script type="text/javascript" src="/static/moment/moment.js"
+            th:src="@{~/moment/moment.js}"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script type="text/javascript" src="/static/bootstrap/js/bootstrap.js"
+            th:src="@{~/bootstrap/js/bootstrap.js}"></script>
+</th:block>
+<!--<script type="text/javascript" src="/static/tabulator_3_5/tabulator_extend.min.js"
+        th:src="@{~/tabulator_3_5/tabulator_extend.min.js}"></script>-->
+<h3>订单管理列表</h3>
+<table th:if="${null != orderList}" class="table table-condensed table-striped">
+    <thead>
+    <th width="150">Order ID</th>
+    <th width="150">User Name</th>
+    <th width="150">User Address</th>
+    </thead>
+    <tbody>
+    <tr th:each="order,orderStat : ${orderList}">
+        <td align="center" th:text="${order.orderId}"></td>
+        <td align="center" th:text="${order.userName}"></td>
+        <td align="center" th:text="${order.userAddress}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

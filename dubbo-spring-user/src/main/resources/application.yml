@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: dubbo-spring-user
+  main:
+    banner-mode: console
+  thymeleaf:
+    mode: HTML5
+    enabled: true
+    suffix: .html
+    cache: false
+  messages:
+    basename: conf/message
+    encoding: utf-8
+  mvc:
+    throw-exception-if-no-handler-found: true
+  resources:
+    static-locations: classpath:/static/, classpath:/resource/
+server:
+  port: 8085
+dubbo:
+  scan:
+    base-packages: cn.duanzx.user.controller
+  application:
+    id: dubbo-spring-user
+    name: dubbo-spring-user
+  protocol:
+    id: dubbo
+    name: dubbo
+    port: 20880
+  registry:
+    address: zookeeper://192.168.168.140:2181
