@@ -18,8 +18,6 @@ spring:
 server:
   port: 8085
 dubbo:
-  scan:
-    base-packages: cn.duanzx.user.controller
   application:
     id: dubbo-spring-user
     name: dubbo-spring-user
